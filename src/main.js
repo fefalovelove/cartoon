@@ -10,7 +10,7 @@ Vue.use(VueCarousel);
 Vue.config.productionTip = false
 
   let app;
- 
+  
   let config = {
     apiKey: "AIzaSyAYjopEVjp9cgiyzDpthlG_dHPWcqY9l04",
     authDomain: "vue-firebase-9f5ae.firebaseapp.com",
