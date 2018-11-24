@@ -1,23 +1,22 @@
 <template>
   <div class="page323">
-    <h1>5810110323</h1>  
-    <p>Mr.Sirasit Lertprakobkit</p>  
 
-    <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="false" :autoplay="true" :autoplayTimeout=2000>
-    <slide>
-      <img :src="require('@/assets/323img/img1.jpg')" width="800" height="600">
-    </slide>
-    <slide>
-      <img :src="require('@/assets/323img/img2.jpg')" width="800" height="600">
-    </slide>
-    <slide>
-      <img :src="require('@/assets/323img/img3.jpg')" width="800" height="600">
-    </slide>    
-  </carousel>
-
+  <article v-for="(location, idx) in locations" :key="idx">
+   <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="true" :autoplay="true" :autoplayTimeout=2000>
+      <slide>
+            <img :src="location.image4">
+      </slide>
+      <slide>
+            <img :src="location.image5">
+      </slide>
+      <slide>
+            <img :src="location.image6">
+      </slide>
+    </carousel>
+  </article>
 
     <ul>      
-      <br><li><router-link to="/page131">page-5810110131</router-link></li><br> 
+      <br><li><router-link to="/page131">เรื่องก่อนหน้า</router-link></li><br> 
       <br><li><router-link to="/hello">Home</router-link></li> <br>      
     </ul>      
     <br><button v-on:click="logout">Logout</button>  
@@ -25,8 +24,27 @@
 </template>
 
 <script>
-  import firebase from 'firebase';
+  import firebase from 'firebase'
+import { db } from '../main'
+import { compare } from 'semver';
 export default {  
+  data () {
+    return {
+      locations: []
+    }
+  },
+  firestore () {
+    return {
+      locations: db.collection('locations')
+    }
+  },
+  methods: {
+    logout: function() {
+      firebase.auth().signOut().then(() => {
+        this.$router.replace('login')
+       })
+    }
+  },
   methods: {
     logout: function() {
       firebase.auth().signOut().then(() => {

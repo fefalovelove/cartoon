@@ -9,6 +9,9 @@
       <slide>
             <img :src="location.image2">
       </slide>
+      <slide>
+            <img :src="location.image3">
+      </slide>
     </carousel>
   </article>
   
