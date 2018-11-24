@@ -1,22 +1,21 @@
 <template>
-  <div class="page323">
+  <div class="page111">
 
   <article v-for="(location, idx) in locations" :key="idx">
    <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="true" :autoplay="true" :autoplayTimeout=2000>
       <slide>
-            <img :src="location.image4">
+            <img :src="location.image9">
       </slide>
       <slide>
-            <img :src="location.image5">
+            <img :src="location.image10">
       </slide>
       <slide>
-            <img :src="location.image6">
+            <img :src="location.image11">
       </slide>
     </carousel>
   </article>
 
     <ul>      
-      <br><li><router-link to="/page111">เรื่องถัดไป</router-link></li><br> 
       <br><li><router-link to="/hello">Home</router-link></li> <br>      
     </ul>      
     <br><button v-on:click="logout">Logout</button>  

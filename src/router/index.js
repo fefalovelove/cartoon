@@ -6,6 +6,7 @@ import Login from '@/components/Login'
 import SignUp from '@/components/SignUp'
 import page131 from '@/components/page131'
 import page323 from '@/components/page323'
+import page111 from '@/components/page111'
 import firebase from 'firebase'
 
 Vue.use(Router)
@@ -33,6 +34,15 @@ let router = new Router({
       path: '/page131',
       name: 'page131',
       component: page131,
+      meta: {
+        requiresAuth: true
+      } 
+    },
+
+    {
+      path: '/page111',
+      name: 'page111',
+      component: page111,
       meta: {
         requiresAuth: true
       } 

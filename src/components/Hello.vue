@@ -3,17 +3,23 @@
     <h1>{{ msg }}</h1>   
 
     <article v-for="(location, idx) in locations" :key="idx">
-    <img :src="location.image7">
-     </article> 
+      <img :src="location.image7">
+    </article> 
     <ul>      
       <br><li><router-link to="/page131">นิทรรศการภาพ 3 มิติ</router-link></li><br> 
       </ul> 
-      <article v-for="(location, idx) in locations" :key="idx">
-    <img :src="location.image8">
-     </article>
-      <ul>  
-      <br><li><router-link to="/page323">เป็นคำตอบสุดท้าย!</router-link></li><br>    
-       </ul>         
+    <article v-for="(location, idx) in locations" :key="idx">
+      <img :src="location.image8">
+    </article>
+    <ul>  
+        <br><li><router-link to="/page323">เป็นคำตอบสุดท้าย!</router-link></li><br>    
+      </ul>  
+    <article v-for="(location, idx) in locations" :key="idx">
+      <img :src="location.image12">
+    </article>
+    <ul>    
+     <br><li><router-link to="/page111">แดนซ์ แดนซ์ เรโวลูชันซูเปอร์โนวา </router-link></li><br>  
+    </ul>    
    
     <br><button v-on:click="logout">Logout</button>        
   </div>
