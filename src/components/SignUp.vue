@@ -1,5 +1,6 @@
 <template>
   <div class="sign-up">
+  <img :src="require('../assets/logo.jpg')" />
   <br><br><h3>Let's create a new account !</h3>
   <input type="text" v-model="email" placeholder="Email"><br>
   <input type="password" v-model="password" placeholder="Password"><br>

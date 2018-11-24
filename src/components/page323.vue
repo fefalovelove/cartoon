@@ -1,6 +1,9 @@
 <template>
   <div class="page323">
-
+    <v-btn icon>
+      <v-icon>more_vert</v-icon>
+    </v-btn>
+</v-toolbar>
   <article v-for="(location, idx) in locations" :key="idx">
    <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="true" :autoplay="true" :autoplayTimeout=2000>
       <slide>
