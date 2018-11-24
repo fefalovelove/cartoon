@@ -1,23 +1,40 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>    
+    <h1>{{ msg }}</h1>   
+
+    <article v-for="(location, idx) in locations" :key="idx">
+    <img :src="location.image7">
+     </article> 
     <ul>      
       <br><li><router-link to="/page131">นิทรรศการภาพ 3 มิติ</router-link></li><br> 
-      <br><li><router-link to="/page323">เป็นคำตอบสุดท้าย!</router-link></li><br>             
-    </ul>
+      </ul> 
+      <article v-for="(location, idx) in locations" :key="idx">
+    <img :src="location.image8">
+     </article>
+      <ul>  
+      <br><li><router-link to="/page323">เป็นคำตอบสุดท้าย!</router-link></li><br>    
+       </ul>         
+   
     <br><button v-on:click="logout">Logout</button>        
   </div>
 </template>
 
 <script>
-  import firebase from 'firebase';
+  import firebase from 'firebase'
+import { db } from '../main'
+import { compare } from 'semver';
 
 
 export default {
   name: 'hello',
   data () {
     return {
-      msg: 'Welcome to first vue.js app'
+      locations: []
+    }
+  },
+  firestore () {
+    return {
+      locations: db.collection('locations')
     }
   },
   methods: {
