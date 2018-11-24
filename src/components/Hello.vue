@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ msg }}</h1>    
     <ul>      
-      <br><li><router-link to="/นิทรรศการภาพ 3 มิติ</router-link></li><br> 
+      <br><li><router-link to="/page131">นิทรรศการภาพ 3 มิติ</router-link></li><br> 
       <br><li><router-link to="/page323">เป็นคำตอบสุดท้าย!</router-link></li><br>             
     </ul>
     <br><button v-on:click="logout">Logout</button>        

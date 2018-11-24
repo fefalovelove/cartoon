@@ -1,41 +1,44 @@
 <template>
-<body>
-  <div class="page131" >
-    <h1>5810110131</h1>  
-    <p>Mr.Thanapon Puechnukul</p>      
 
-    <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="false" :autoplay="true" :autoplayTimeout=2000>
-    <slide>
-      <img :src="require('@/assets/131img/img1.jpg')" width="800" height="600">
-    </slide>
-    <slide>
-      <img :src="require('@/assets/131img/img2.jpg')" width="800" height="600">
-    </slide>
-    <slide>
-      <img :src="require('@/assets/131img/img3.jpg')" width="800" height="600">
-    </slide>
-    <slide>
-      <img :src="require('@/assets/131img/img4.jpg')" width="800" height="600">
-    </slide>
-  </carousel>
+  <div class="page131" >
+  <article v-for="(location, idx) in locations" :key="idx">
+   <carousel :per-page="1" :navigate-to="someLocalProperty" mouse-drag="true" :autoplay="true" :autoplayTimeout=2000>
+      <slide>
+            <img :src="location.image">
+      </slide>
+      <slide>
+            <img :src="location.image2">
+      </slide>
+    </carousel>
+  </article>
+  
 
     <ul>      
-      <br><li><router-link to="/page323">page-5810110323</router-link></li> <br>
+      <br><li><router-link to="/page323">เรื่องถัดไป</router-link></li> <br>
       <br><li><router-link to="/hello">Home</router-link></li><br>       
     </ul>      
     <br><button v-on:click="logout">Logout</button>  
   </div>
-</body>
+
 </template>
 
 <script>
-  import { Carousel, Slide } from 'vue-carousel'
+  import firebase from 'firebase'
+import { db } from '../main'
+import { compare } from 'semver';
 
-  import firebase from 'firebase';
-export default {  
-  components: {
-    Carousel,
-    Slide
+
+  export default {
+  name: 'HelloWorld',
+  data () {
+    return {
+      locations: []
+    }
+  },
+  firestore () {
+    return {
+      locations: db.collection('locations')
+    }
   },
   methods: {
     logout: function() {
@@ -43,7 +46,9 @@ export default {
         this.$router.replace('login')
        })
     }
-  }
+  },
+  mounted() {
+  },
 }
 </script>
 

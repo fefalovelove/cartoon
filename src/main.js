@@ -1,23 +1,26 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
-import VueCarousel from 'vue-carousel'
+import VueFire from 'vuefire'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
-//hkhkas
+import 'firebase/firestore'
+import VueCarousel from 'vue-carousel';
+ 
 Vue.use(VueCarousel);
+Vue.use(VueFire)
 Vue.config.productionTip = false
 
   let app;
-  
-  let config = {
-    apiKey: "AIzaSyAYjopEVjp9cgiyzDpthlG_dHPWcqY9l04",
-    authDomain: "vue-firebase-9f5ae.firebaseapp.com",
-    databaseURL: "https://vue-firebase-9f5ae.firebaseio.com",
-    projectId: "vue-firebase-9f5ae",
-    storageBucket: "vue-firebase-9f5ae.appspot.com",
-    messagingSenderId: "700006267695"
+ 
+  var config = {
+    apiKey: "AIzaSyAdkR7O2rGBK7vuJnwguY2Kk_bAWwoM3h4",
+    authDomain: "webapp-27fae.firebaseapp.com",
+    databaseURL: "https://webapp-27fae.firebaseio.com",
+    projectId: "webapp-27fae",
+    storageBucket: "webapp-27fae.appspot.com",
+    messagingSenderId: "803017458562"
   };
 
   firebase.initializeApp(config);
@@ -31,5 +34,7 @@ Vue.config.productionTip = false
       })
     }
  });
+ export const db = firebase.firestore()
+
 
 
